@@ -25,7 +25,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "timelib.h"
+#include "terminal.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -91,9 +92,8 @@ int main(void)
   MX_TIM7_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
   /* USER CODE END 2 */
-
+  timelib_init();
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -101,6 +101,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  //printf("hello World!\n\r");
+	  //HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }

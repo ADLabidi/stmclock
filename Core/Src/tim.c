@@ -21,6 +21,8 @@
 #include "tim.h"
 
 /* USER CODE BEGIN 0 */
+#include "timelib.h"
+#include <stdio.h>
 
 /* USER CODE END 0 */
 
@@ -33,7 +35,7 @@ void MX_TIM6_Init(void)
   TIM_MasterConfigTypeDef sMasterConfig = {0};
 
   htim6.Instance = TIM6;
-  htim6.Init.Prescaler = 89;
+  htim6.Init.Prescaler = 899;
   htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim6.Init.Period = 999;
   htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -141,7 +143,19 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
 }
 
 /* USER CODE BEGIN 1 */
-
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if (htim->Instance == TIM6)
+	{
+		timelib_updateTimeCount();
+	}
+	else if(htim->Instance == TIM7)
+	{
+		timelib_printTime();
+	}
+	else
+	{}
+}
 /* USER CODE END 1 */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
