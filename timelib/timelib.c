@@ -32,7 +32,7 @@ void timelib_printTime()
 {
 	uint8_t ms = time_raw % 100;
 	uint8_t secs = (time_raw % 6000) /100;
-	uint8_t mins = (time_raw % 360000) /6000;;
+	uint8_t mins = (time_raw % 360000) /6000;
 	uint8_t hrs = time_raw / 360000;
 
 	printf("Time is : %.2u:%.2u:%.2u.%.2u\n\r", hrs, mins, secs, ms);
